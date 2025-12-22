@@ -1,0 +1,56 @@
+# Detection settings
+detection:
+  model_path: "models/yolov8n.pt"
+  confidence_threshold: 0.5
+  nms_threshold: 0.4
+  input_size: [640, 640]
+
+# Tracking settings
+tracking:
+  max_disappeared: 30
+  max_distance: 100
+  tracker_type: "centroid" # options: centroid (currently only centroid is implemented)
+
+# Classification settings
+classification:
+  vehicle_classes:
+    - "car"
+    - "motorcycle"
+    - "bus"
+    - "truck"
+    - "bicycle"
+
+# Analytics settings
+analytics:
+  congestion_thresholds:
+    low: 10
+    medium: 25
+    high: 50
+  speed_estimation: true
+  counting_zones: []
+
+# Video processing
+video:
+  fps: 30
+  resize_factor: 1.0
+  output_format: "mp4"
+
+# Visualization
+visualization:
+  show_bboxes: true
+  show_tracks: true
+  show_counts: true
+  show_zones: true
+  colors:
+    car: [0, 255, 0]
+    motorcycle: [255, 0, 0]
+    bus: [0, 0, 255]
+    truck: [255, 255, 0]
+    bicycle: [255, 0, 255]
+
+# Output settings
+output:
+  save_video: true
+  save_analytics: true
+  output_dir: "output/"
+  log_level: "INFO"
